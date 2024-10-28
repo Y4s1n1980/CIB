@@ -1,0 +1,738 @@
+.home-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Sección de Testimonios en el Home */
+.testimonials-preview {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;  /* Fondo suave */
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    border-radius: 10px;  /* Bordes redondeados */
+    max-width: 800px; /* Limitar el ancho del contenedor */
+}
+
+.testimonials-preview h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.testimonial {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-style: italic; /* Estilo de cita */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+}
+
+.testimonial:hover {
+    transform: translateY(-5px); /* Pequeño movimiento hacia arriba al hover */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* Mayor sombra en hover */
+}
+
+.testimonial p {
+    margin-bottom: 5px;
+}
+
+.testimonial:last-child {
+    margin-bottom: 0;
+}
+
+.read-more-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.read-more-button:hover {
+    background-color: #e09e00;
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para el texto del héroe */
+.hero-text {
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.hero-text.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos del texto dentro del héroe */
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffaa00;
+}
+
+.hero-text p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.hero-text button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero-text button:hover {
+    background-color: #e59400;
+}
+
+/* Hero Section con overlay */
+.hero-section {
+    position: relative;
+    overflow: hidden; /* Asegura que los elementos hijos no se desborden */
+    color: white;
+    text-align: center;
+    padding: 250px 0;
+    z-index: 1;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: zoomEffect 15s ease-in-out infinite; /* Animación continua con zoom */
+    z-index: -1;
+    opacity: 1;
+}
+
+/* Ajustes para el contenedor hero para permitir la superposición */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Animación del zoom continuo */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Texto dentro del Hero */
+.hero-text {
+    position: relative; /* Esto asegura que el texto esté sobre las imágenes */
+    z-index: 1;
+}
+
+/* Hero animado inverso (alejándose) */
+.hero-background.exit {
+    opacity: 0; /* Cuando está saliendo, se desvanece */
+    transform: scale(1); /* Se aleja de nuevo */
+}
+
+/*seccion imagenes hero*/
+
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.image-zoom {
+    animation: zoomEffect 15s ease-in-out forwards; 
+}
+
+/* Contenedor general */
+.welcome-prayer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 0; 
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f3f4f6, #dfe7f3); 
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.prayer-times-section iframe {
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15); 
+}
+
+/* Welcome Section */
+.welcome-section {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-section h2::before {
+    content: 'Welcome';
+    display: block;
+    font-size: 24px;
+    color: #d19b3d;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+}
+
+.welcome-section h2 {
+    font-size: 45px;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.welcome-section p {
+    font-size: 23px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.welcome-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.welcome-list li {
+    font-size: 20px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-list li::before {
+    content: "•";
+    color: #ffaa00;
+    padding-right: 10px;
+    font-size: 30px;
+}
+
+.welcome-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.welcome-section ul li {
+    flex: 1;
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.welcome-section ul li::before {
+    content: "•";
+    color: #ffaa00;
+    padding-right: 10px;
+}
+
+/* Botón */
+.read-more-button {
+    font-size: 18px;
+    background-color: #ffaa00;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
+    align-self: flex-start; 
+}
+
+.read-more-button:hover {
+    background-color: #e09e00;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-3px); 
+}
+
+/* Prayer Times Section */
+.prayer-times-section {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.prayer-times-section h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.prayer-times-section iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease;
+}
+
+.prayer-times-section iframe:hover {
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2); /* Efecto de hover en el iframe */
+}
+
+/* Sección de Servicios con fondo personalizado */
+.services-section {
+    padding: 50px 0;
+    text-align: center;
+    background-image: url('/public/coranlectura.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Aseguramos que el texto sea visible sobre el fondo */
+}
+
+
+.services-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: white; 
+}
+
+
+.services-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.service-item {
+    width: 30%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Ajustes para los íconos y botones dentro de las tarjetas */
+.service-icon {
+    font-size: 50px;
+    color: #ffaa00;
+    margin-bottom: 20px;
+}
+
+.read-more-button {
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.read-more-button:hover {
+    background-color: #e59400;
+}
+
+/* Ajuste general para las secciones */
+.services-section, .projects-help-section {
+    padding: 60px 0;
+    margin-bottom: 80px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+/* Ajustes de las tarjetas */
+.services-list, .projects-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+/* Ajuste del tamaño de las tarjetas */
+.service-item, .project-item {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: auto;
+}
+
+/* Ajuste para evitar que las tarjetas se aprieten al final */
+.service-item, .project-item {
+    flex-grow: 1;
+    max-width: 30%;
+}
+
+/* Ajuste del hover */
+.service-item:hover, .project-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Botones consistentes */
+.read-more-button, .donate-button {
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover, .donate-button:hover {
+    background-color: #e59400;
+}
+
+/* Ajuste para el espaciado entre filas */
+.services-list, .projects-container {
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+
+/* Estilo de la cuenta regresiva */
+.countdown-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    background-color: #f7b733;
+    background-image: url('/public/images/gallery-image3.jpg'); /* Añade tu imagen aquí */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .countdown-text {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+  }
+  
+  .countdown-text h2 {
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+  }
+  
+  .countdown-text h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #ffd700;
+  }
+  
+  .timer {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
+  .time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  .time-box span {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .all-events-button {
+    background-color: #ffaa00;
+    color: #333;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .all-events-button:hover {
+    background-color: #e09e00;
+  }
+
+  .event-countdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background: #b2955b;
+    color: white;
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.countdown-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/public/images/gallery-image9.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6; /* Ajustar opacidad para resaltar el texto */
+}
+
+.countdown-overlay {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.event-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #f5d76e;
+    margin-bottom: 10px;
+}
+
+.event-subtitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.time-segment {
+    text-align: center;
+}
+
+.time-segment span:first-child {
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+}
+
+.time-segment span:last-child {
+    font-size: 1em;
+    color: #f5d76e;
+}
+
+.all-events-button {
+    padding: 12px 24px;
+    background-color: #ffaa00;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.all-events-button:hover {
+    background-color: #e09e00;
+}
+  
+
+/* Íconos en la parte inferior (Proyectos de Ayuda) */
+.donate-icon {
+    font-size: 50px;
+    color: #ffaa00;
+    margin-bottom: 20px;
+}
+
+
+/* Media query para tablets (pantallas de ancho <= 768px) */
+@media (max-width: 768px) {
+    /* Ajustes para el contenedor de testimonios */
+    .testimonials-preview {
+        padding: 40px 20px;
+        max-width: 90%; /* Asegura que se adapte al ancho de la pantalla */
+    }
+
+    .testimonials-preview h2 {
+        font-size: 28px;
+    }
+
+    .testimonial {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    /* Ajustes para el contenedor general de bienvenida y oración */
+    .welcome-prayer-container {
+        flex-direction: column; /* Cambia a columna para dispositivos más estrechos */
+        gap: 20px;
+        padding: 40px 10px;
+    }
+
+    .welcome-section h2 {
+        font-size: 36px;
+    }
+
+    .welcome-section p {
+        font-size: 20px;
+    }
+
+    .welcome-list li {
+        font-size: 18px;
+    }
+
+    .services-list, .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item, .project-item {
+        width: 80%; /* Reduce el ancho de cada tarjeta */
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para el héroe */
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        font-size: 20px;
+    }
+
+    /* Ajuste para secciones de lista */
+    .welcome-list {
+        grid-template-columns: 1fr; /* Cambia a una columna en lugar de dos */
+        text-align: center;
+    }
+}
+
+/* Media query para móviles (pantallas de ancho <= 480px) */
+@media (max-width: 480px) {
+    /* Ajustes para el contenedor de testimonios */
+    .testimonials-preview h2 {
+        font-size: 24px;
+    }
+
+    .testimonial {
+        font-size: 16px;
+    }
+
+    /* Ajustes para el contenedor de bienvenida */
+    .welcome-section h2 {
+        font-size: 28px;
+    }
+
+    .welcome-section p {
+        font-size: 18px;
+    }
+
+    .read-more-button, .donate-button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    /* Ajuste de íconos y texto en tarjetas de servicios */
+    .service-icon, .donate-icon {
+        font-size: 40px;
+    }
+
+    /* Ajuste para el botón de cuenta regresiva */
+    .all-events-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .countdown-text h2 {
+        font-size: 28px;
+    }
+
+    .countdown-timer .time-box span {
+        font-size: 36px;
+    }
+
+    /* Ajustes adicionales para el texto del héroe */
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    /* Ajuste para imágenes en la sección de servicios */
+    .service-item, .project-item {
+        width: 100%; /* Aprovecha todo el ancho en pantallas pequeñas */
+    }
+}

@@ -1,0 +1,145 @@
+.financial-ramadan {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.financial-ramadan h2 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.financial-ramadan table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.financial-ramadan th, .financial-ramadan td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.financial-ramadan th {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.financial-ramadan tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.total-amount {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.financial-ramadan .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.financial-ramadan input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Botón Añadir Fila */
+.financial-ramadan .add-row-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4caf50; /* Verde para distinguir */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.financial-ramadan .add-row-button:hover {
+    background-color: #388e3c;
+}
+
+/* Botón Editar */
+.edit-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #2196f3; /* Azul */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #1976d2;
+}
+
+/* Botón Eliminar */
+.delete-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #dc3545; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .financial-ramadan {
+        padding: 15px;
+    }
+
+    .financial-ramadan table, .financial-ramadan th, .financial-ramadan td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .financial-ramadan h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .financial-ramadan {
+        padding: 10px;
+    }
+
+    .financial-ramadan .form {
+        flex-direction: column;
+    }
+
+    .financial-ramadan input, .financial-ramadan .add-row-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .financial-ramadan table, .financial-ramadan th, .financial-ramadan td {
+        font-size: 12px;
+        padding: 5px;
+    }
+}

@@ -1,0 +1,58 @@
+/* Encabezado del sitio */
+header {
+  background-color: #003366; /* Azul marino */
+  padding: 20px;
+  position: relative;
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #cccccc; /* Color de hover en los enlaces */
+}
+
+button {
+  background-color: #008080; /* Verde para el botón de cerrar sesión */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #006666;
+}
+
+/* Menú responsive */
+@media (max-width: 768px) {
+  header nav {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 10px;
+  }
+
+  header nav a {
+      margin-left: 0;
+      margin-bottom: 10px;
+  }
+
+  button {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+  }
+}

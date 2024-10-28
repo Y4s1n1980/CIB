@@ -1,0 +1,140 @@
+.contact-page {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+}
+
+.contact-header {
+    margin-bottom: 40px;
+}
+
+.contact-header h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-header p {
+    font-size: 18px;
+    color: #777;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    text-align: center;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Alinear el formulario con sombras neomorfismo */
+.contact-form {
+    margin-bottom: 50px;
+}
+
+.contact-form form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos de neomorfismo para los inputs y textarea */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efecto neomorfismo en hover */
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: inset 9px 9px 16px #bebebe, inset -9px -9px 16px #ffffff;
+}
+
+.form-group textarea {
+    height: 150px;
+}
+
+.btn-send {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-send:hover {
+    background-color: #ff8533;
+    box-shadow: inset 9px 9px 16px #bebebe, inset -9px -9px 16px #ffffff;
+}
+
+/* Estilo para el mapa */
+.contact-map iframe {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-header h1 {
+        font-size: 28px;
+    }
+
+    .contact-header p {
+        font-size: 16px;
+    }
+
+    .btn-send {
+        align-self: center;
+    }
+
+    .contact-form form {
+        padding: 0 10px;
+    }
+}

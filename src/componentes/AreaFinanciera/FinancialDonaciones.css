@@ -1,0 +1,148 @@
+/* Estilos Generales */
+.financial-donaciones {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.financial-donaciones h2 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.financial-donaciones table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.financial-donaciones th,
+.financial-donaciones td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.financial-donaciones th {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.financial-donaciones tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Formulario */
+.financial-donaciones .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.financial-donaciones input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Botón Añadir Fila */
+.financial-donaciones button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745; /* Verde para añadir fila */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.financial-donaciones button:hover {
+    background-color: #218838;
+}
+
+/* Botones de Editar y Eliminar */
+.financial-donaciones .edit-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #28a745; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.financial-donaciones .edit-button:hover {
+    background-color: #218838;
+}
+
+.financial-donaciones .delete-button {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: hsl(354, 74%, 32%); 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.financial-donaciones .delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .financial-donaciones {
+        padding: 15px;
+    }
+
+    .financial-donaciones table {
+        font-size: 14px;
+    }
+
+    .financial-donaciones th, .financial-donaciones td {
+        padding: 8px;
+    }
+
+    .financial-donaciones h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .financial-donaciones {
+        padding: 10px;
+    }
+
+    .financial-donaciones .form {
+        flex-direction: column;
+    }
+
+    .financial-donaciones input {
+        width: 100%;
+    }
+
+    .financial-donaciones button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .financial-donaciones table, .financial-donaciones th, .financial-donaciones td {
+        font-size: 12px;
+        padding: 5px;
+    }
+}

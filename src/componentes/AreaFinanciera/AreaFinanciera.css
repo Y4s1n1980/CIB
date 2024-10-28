@@ -1,0 +1,145 @@
+/* Hero Section */
+.area-financiera .hero-section {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  padding: 150px 0; /* Ajustar según lo necesites */
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px; /* Espacio lateral en pantallas pequeñas */
+}
+
+.hero-navbar {
+  margin-top: 20px;
+}
+
+.hero-navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.hero-navbar-list li {
+  margin: 0 10px;
+}
+
+.hero-navbar-list a,
+.hero-navbar-list button {
+  color: white;
+  font-size: 16px;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-navbar-list button {
+  background-color: #007bff; /* Color específico para el botón de cerrar sesión */
+}
+
+.hero-navbar-list button:hover,
+.hero-navbar-list a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Navbar Styling */
+.area-financiera-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: transparent; /* Fondo transparente dentro del Hero */
+  z-index: 10;
+}
+
+.area-financiera-navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.area-financiera-navbar-list li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  font-family: 'Playfair Display', serif;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.area-financiera-navbar-list li a:hover {
+  color: #ffaa00;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Responsive adjustments for the hero and navbar */
+@media (max-width: 768px) {
+  .hero-navbar-list {
+    flex-direction: column;
+  }
+
+  .hero-navbar-list li {
+    margin-bottom: 15px;
+  }
+
+  .hero-navbar-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Ajustes adicionales para dispositivos móviles */
+  .area-financiera .hero-section {
+    padding: 100px 20px; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .area-financiera-navbar {
+    justify-content: space-around;
+  }
+
+  .area-financiera-navbar-list {
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro en móviles */
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .area-financiera-navbar-list li {
+    margin-bottom: 10px;
+  }
+
+  .area-financiera-navbar-list li a {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  /* Mostrar menú al activar el icono de hamburguesa */
+  .area-financiera-navbar-list.show-menu {
+    display: flex;
+  }
+
+  /* Ocultar elementos en dispositivos móviles */
+  .area-financiera-navbar .menu-toggle {
+    display: flex;
+  }
+}

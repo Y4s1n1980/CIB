@@ -1,0 +1,177 @@
+/* General layout for the admin dashboard */
+.admin-dashboard {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.admin-content {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Styling for tables in the admin dashboard */
+.admin-table,
+.school-table,
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Table headers with color-coded backgrounds */
+.admin-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.school-table th {
+    background-color: #28a745;
+    color: white;
+}
+
+.event-table th {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Table cells styling */
+.admin-table th,
+.admin-table td,
+.school-table th,
+.school-table td,
+.event-table th,
+.event-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Alternating row colors for better readability */
+.admin-table tr:nth-child(even),
+.school-table tr:nth-child(even),
+.event-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Buttons styling */
+button {
+    padding: 8px 12px;
+    margin: 4px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Approve and Reject buttons */
+.approve-btn {
+    background-color: #4CAF50;
+}
+
+.reject-btn {
+    background-color: #f44336;
+}
+
+/* Text area styling */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+.school-table th, .school-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.school-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.approve-btn, .reject-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.approve-btn {
+    background-color: #28a745;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+}
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 15px;
+    }
+
+    .admin-table,
+    .school-table,
+    .event-table {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-dashboard {
+        padding: 10px;
+    }
+
+    .admin-table,
+    .school-table,
+    .event-table {
+        font-size: 12px;
+    }
+
+    button {
+        width: 100%; /* Full-width buttons on smaller screens */
+        padding: 8px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}

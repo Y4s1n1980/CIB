@@ -1,0 +1,111 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  margin-left: calc(50% - 50vw); /* Alineación central */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  z-index: 1;
+}
+
+/* Para solapar la siguiente sección */
+.next-section {
+  margin-top: -80px; /* Ajusta este valor para solapar más o menos */
+  position: relative;
+  z-index: 1;
+}
+
+/* Navbar en hero */
+.hero-navbar {
+  margin-top: 20px;
+}
+
+.hero-navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: 10px; /* Espacio entre botones */
+  list-style-type: none;
+  padding: 0;
+}
+
+.hero-navbar-list li {
+  margin: 0 10px;
+}
+
+.hero-navbar-list a,
+.hero-navbar-list button {
+  color: white;
+  font-size: 16px;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-navbar-list button {
+  background-color: #007bff; /* Color específico para el botón de cerrar sesión */
+}
+
+.hero-navbar-list button:hover,
+.hero-navbar-list a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Variante para la sección de la escuela */
+.hero-section.escuela {
+  background-color: #f9f2e8;
+  color: #442a19;
+}
+
+.hero-section.escuela h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  color: #a5673f;
+}
+
+.hero-section.escuela p {
+  color: #6e4b3a;
+  font-size: 1.25rem;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero-navbar-list {
+    flex-direction: column;
+  }
+
+  .hero-navbar-list li {
+    margin: 5px 0;
+  }
+}

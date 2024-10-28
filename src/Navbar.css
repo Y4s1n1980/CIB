@@ -1,0 +1,160 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+ }
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    font-family: 'Playfair Display', serif;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.navbar-list li a:hover {
+    color: #ffaa00;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Sombra cuando el navbar está en modo "scrolled" */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+ }
+
+
+/* Submenú */
+.navbar-list .has-submenu {
+    position: relative;
+}
+
+.navbar-list .has-submenu .submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    top: 110%;
+    left: 0;
+    min-width: 150px;
+    z-index: 999;
+}
+
+.navbar-list .has-submenu:hover .submenu {
+    display: block;
+}
+
+.navbar-list .has-submenu .submenu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    z-index: 1000;
+}
+
+.submenu li {
+    padding: 8px 15px;
+    text-align: left;
+}
+
+.submenu li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.submenu li a:hover {
+    color: #ffaa00;
+    border-radius: 5px;
+}
+
+.logout-button {
+    background-color: #ffaa00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #cc8800;
+}
+
+/* Menú hamburguesa para móvil */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.menu-toggle.open .hamburger {
+    background-color: #ffaa00;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        text-align: right;
+        padding: 20px;
+    }
+
+    .navbar-list.show-menu {
+        display: flex;
+    }
+
+    .navbar-list li {
+        margin-bottom: 15px;
+    }
+
+    .navbar-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    .submenu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .submenu li {
+        padding: 5px 0;
+    }
+}

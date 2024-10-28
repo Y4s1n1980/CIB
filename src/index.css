@@ -1,0 +1,67 @@
+/* Variables de color */
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #6C757D;
+  --success-color: #28A745;
+  --danger-color: #DC3545;
+  --background-color: #F8F9FA;
+  --text-color: #212529;
+  --light-text-color: #ffffff;
+}
+
+/* Tipografía */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Estructura básica para la app */
+header, footer {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  padding: 15px;
+  text-align: center;
+}
+
+header nav a {
+  color: var(--light-text-color);
+  margin: 0 15px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: var(--success-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--success-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}

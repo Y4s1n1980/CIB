@@ -1,0 +1,148 @@
+/* Contenedor Principal */
+.financial-viernes {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.financial-viernes h2 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Tabla */
+.financial-viernes table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.financial-viernes th,
+.financial-viernes td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.financial-viernes th {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.financial-viernes tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Total Monto */
+.financial-viernes .total-amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Formulario */
+.financial-viernes .form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.financial-viernes input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Botón Añadir Fila */
+.financial-viernes .add-row-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff; /* Azul para añadir fila */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.financial-viernes .add-row-button:hover {
+  background-color: #0056b3;
+}
+
+/* Botones de Editar y Eliminar */
+.financial-viernes .edit-button,
+.financial-viernes .delete-button {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.financial-viernes .edit-button {
+  background-color: #28a745; /* Verde para editar */
+  margin-right: 5px;
+}
+
+.financial-viernes .edit-button:hover {
+  background-color: #218838;
+}
+
+.financial-viernes .delete-button {
+  background-color: #dc3545; 
+}
+
+.financial-viernes .delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .financial-viernes {
+    padding: 15px;
+  }
+
+  .financial-viernes h2 {
+    font-size: 24px;
+  }
+
+  .financial-viernes table, .financial-viernes th, .financial-viernes td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .financial-viernes {
+    padding: 10px;
+  }
+
+  .financial-viernes .form {
+    flex-direction: column;
+  }
+
+  .financial-viernes input, .financial-viernes .add-row-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .financial-viernes table, .financial-viernes th, .financial-viernes td {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
