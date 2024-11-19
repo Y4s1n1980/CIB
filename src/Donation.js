@@ -25,7 +25,7 @@ const CheckoutForm = () => {
     donante_nombre: '',
     donante_email: '',
     monto: 0,
-    fecha_donacion: '', // Este campo lo puedes ajustar con un date picker o dejar que sea la fecha actual
+    fecha_donacion: '', 
     metodo_pago: 'Tarjeta de Crédito',
     estado: 'pendiente',
     referencia_transaccion: '',

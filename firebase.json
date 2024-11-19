@@ -8,6 +8,15 @@
       "firebase-debug.*.log",
       "*.local"
     ]
+  },
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
+
 

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css'; 
-import './Navbar.css';
-import Navbar from './Navbar';  // Importamos el Navbar
+import './Navbar.css'; 
 import { useNavigate } from 'react-router-dom'; 
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { collection, getDocs, orderBy, limit, query } from 'firebase/firestore';
-import { db } from './firebaseConfig'; // Asegúrate de importar tu config de Firebase
+import { db } from './firebaseConfig'; 
 
 const images = [
   '../gallery-image17.jpg',
@@ -19,10 +18,10 @@ const images = [
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [lastTestimonio, setLastTestimonio] = useState(null); // Estado para el último testimonio
+  const [lastTestimonio, setLastTestimonio] = useState(null); 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
-  const ramadanStartDate = new Date('2025-03-01T00:00:00'); // Fecha exacta de inicio del Ramadán
+  const ramadanStartDate = new Date('2025-03-01T00:00:00'); 
   const [timeRemaining, setTimeRemaining] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
 
@@ -52,7 +51,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Cambiar la imagen cada 5 segundos
+    
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 9000);
@@ -60,7 +59,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Obtener el último testimonio
+    
     const fetchLastTestimonio = async () => {
       const q = query(collection(db, 'testimonios'), orderBy('createdAt', 'desc'), limit(1));
       const snapshot = await getDocs(q);
@@ -97,8 +96,7 @@ const Home = () => {
     >
       <div className="home-container">
         {/* Sección 1: Fondo con frase religiosa y Navbar */}
-        <section className="hero-section">
-          <Navbar /> {/* Mover el Navbar aquí para que esté dentro del hero */}
+        <section className="hero-section"> 
           <AnimatePresence>
             <motion.div
               key={currentImageIndex}

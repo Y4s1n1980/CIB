@@ -8,7 +8,7 @@ import Donation from './Donation';
 import Contact from './Contact';
 import Chat from './Chat'; 
 import AdminDashboard from './dashboard/AdminDashboard';
-import AdminRoute from './routes/AdminRoute'; 
+import AdminRoute from './AdminRoute'; 
 import PrivateRoute from './PrivateRoute'; // Importamos la nueva ruta protegida
 import { UserProvider } from './UserContext'; 
 import './index.css'; 
@@ -23,15 +23,11 @@ import Escuela from './Escuela';
 import AreaFinanciera from './componentes/AreaFinanciera/AreaFinanciera';  
 
 function AppContent() {
-  // Utilizamos useLocation para verificar la ruta actual
   const location = useLocation();
-
-   // Definimos las rutas donde el Navbar no debe mostrarse, incluyendo "area-financiera"
-   const hideNavbarRoutes = ["/solicitar-acceso", "/login", "/area-financiera"];
+  const hideNavbarRoutes = ["/solicitar-acceso", "/login", "/area-financiera"];
 
   return (
     <>
-      {/* Deshabilitar Content Security Policy temporalmente para facilitar desarrollo */}
       <Helmet>
         <meta 
           http-equiv="Content-Security-Policy" 
@@ -40,16 +36,17 @@ function AppContent() {
         <title>Associación Annour Blanes</title>
       </Helmet>
 
-      {/* Solo mostramos el Navbar si no estamos en las rutas definidas */}
+      {/* Condicional para el Navbar */}
       {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
 
-      <Routes>  
-        <Route path="/" element={<Home />} />  
+      <Routes>
+        {/* Rutas */}
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donation />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />  
-        <Route path="/solicitar-acceso" element={<AuthEscuela />} />  {/* Nueva ruta para solicitar acceso */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/solicitar-acceso" element={<AuthEscuela />} />
         
         {/* Rutas protegidas */}
         <Route path="/chat" element={<PrivateRoute><Chat /></PrivateRoute>} />
@@ -65,6 +62,7 @@ function AppContent() {
     </>
   );
 }
+
 
 function App() {
   return (

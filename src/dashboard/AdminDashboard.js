@@ -5,6 +5,7 @@ import Hero from '../Hero';
 import './AdminDashboard.css';
 import { getAuth } from 'firebase/auth';
 
+
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [schoolUsers, setSchoolUsers] = useState([]);

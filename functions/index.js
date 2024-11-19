@@ -12,7 +12,7 @@ exports.setAdminRole = functions.auth.user().onCreate(async (user) => {
   const userDoc = await admin.firestore().doc(`users-school/${userId}`).get();
 
   if (userDoc.exists) {
-    const role = userDoc.data().role || 'user'; // Por defecto será 'user' si no tiene rol
+    const role = userDoc.data().role || 'user';
     try {
       // Asignar el rol desde Firestore
       await admin.auth().setCustomUserClaims(userId, { role });
