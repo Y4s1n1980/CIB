@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, doc, deleteDoc, updateDoc, addDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, deleteDoc, updateDoc, addDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import Hero from '../Hero';
 import './AdminDashboard.css';
@@ -88,69 +88,65 @@ function AdminDashboard() {
   useEffect(() => {
     const fetchSchoolRequests = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'schoolAccessRequest'));
+        const querySnapshot = await getDocs(collection(db, 'schoolAccessRequests'));
         const requestsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setSchoolRequests(requestsData);
+        // Excluir administradores
+        const filteredRequests = requestsData.filter(request => request.role !== 'admin');
+        setSchoolRequests(filteredRequests);
       } catch (error) {
         console.error('Error al cargar solicitudes de acceso a la escuela:', error);
       }
     };
     fetchSchoolRequests();
   }, []);
+  
+  
 
   // Aprobar solicitud de acceso
   const handleApprove = async (id) => {
     try {
-      // Encuentra la solicitud en schoolAccessRequest
+      // Buscar la solicitud específica en `schoolAccessRequests`
       const requestDoc = schoolRequests.find(request => request.id === id);
+  
       if (requestDoc) {
-        // Agrega a users-school y establece estado aprobado
-        await addDoc(collection(db, 'users-school'), {
+        // Crear o actualizar el documento en `users-school` usando el userId como ID
+        const userSchoolDocRef = doc(db, 'users-school', requestDoc.userId);
+  
+        await setDoc(userSchoolDocRef, {
           email: requestDoc.email,
+          aprobado: true,
           estado: 'aprobado',
-          aprobado: true
+          role: 'user', // Rol predeterminado
+          isActive: true,
         });
-        
-        // Elimina la solicitud de schoolAccessRequest
-        await deleteDoc(doc(db, 'schoolAccessRequest', id));
-        
-        // Actualiza el estado local para reflejar la eliminación
+  
+        // Eliminar la solicitud de acceso en `schoolAccessRequests`
+        await deleteDoc(doc(db, 'schoolAccessRequests', id));
         setSchoolRequests(schoolRequests.filter(request => request.id !== id));
+  
         alert('Solicitud aprobada con éxito.');
+      } else {
+        console.error('No se encontró la solicitud en `schoolAccessRequests`.');
       }
     } catch (error) {
       console.error('Error al aprobar la solicitud:', error);
     }
   };
+  
+  
+  
 
   // Rechazar solicitud de acceso
   const handleReject = async (id) => {
     try {
-      await deleteDoc(doc(db, 'schoolAccessRequest', id));
+      await deleteDoc(doc(db, 'schoolAccessRequests', id));
       setSchoolRequests(schoolRequests.filter(request => request.id !== id));
       alert('Solicitud rechazada y eliminada.');
     } catch (error) {
       console.error('Error al rechazar la solicitud:', error);
     }
   };
-
-
-
-  // Función para actualizar el contenido de la página
-  const handleContentChange = (e) => {
-    const { name, value } = e.target;
-    setPageContent({ ...pageContent, [name]: value });
-  };
-
-  const handleSaveContent = async () => {
-    try {
-      const docRef = doc(db, 'pageContent', 'mainPage');
-      await updateDoc(docRef, pageContent);
-      console.log('Contenido de la página actualizado');
-    } catch (error) {
-      console.error('Error al actualizar el contenido de la página:', error);
-    }
-  };
+  
 
 
   return (
@@ -269,16 +265,7 @@ function AdminDashboard() {
         </tbody>
       </table>
 
-      {/* Editor de Contenido de la Página */}
-      <h2>Editar Contenido de la Página</h2>
-      <textarea
-        name="content"
-        value={pageContent.content}
-        onChange={handleContentChange}
-        rows="5"
-        placeholder="Contenido de la página..."
-      />
-      <button onClick={handleSaveContent}>Guardar Cambios</button>
+      
     </div>
   </div>
 );

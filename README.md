@@ -9,12 +9,12 @@ El backend utiliza Node.js y Express para manejar las notificaciones por correo 
 Correo de notificación: Cuando un usuario realiza una donación, se envía una notificación al administrador mediante Nodemailer.
 .env variables: Asegúrate de configurar las siguientes variables de entorno en el archivo .env para el correcto funcionamiento:
 
-REACT_APP_EMAILJS_SERVICE_ID=service_fkm7vvh
-REACT_APP_EMAILJS_TEMPLATE_ID=template_tne0dk5
-REACT_APP_EMAILJS_USER_ID=KRKZdCAfCgO9VpMNK
-ADMIN_EMAIL=tu-email-admin@gmail.com
-ADMIN_EMAIL_PASSWORD=tu-contraseña
-ADMIN_NOTIFICATION_EMAIL=benomaryasin1980@gmail.com
+REACT_APP_EMAILJS_SERVICE_ID=
+REACT_APP_EMAILJS_TEMPLATE_ID=
+REACT_APP_EMAILJS_USER_ID=
+ADMIN_EMAIL=
+ADMIN_EMAIL_PASSWORD=
+ADMIN_NOTIFICATION_EMAIL=
 
 Frontend - association-site/src
 La aplicación de frontend está construida en React y utiliza Firebase para la autenticación, almacenamiento y base de datos en tiempo real.

@@ -56,23 +56,24 @@ function AuthEscuela() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      // Verificar si el usuario es admin antes de agregarlo a 'users-school'
+  
+      // Verificar si el usuario es admin antes de continuar
       const userRoleDoc = await getDoc(doc(db, 'users', user.uid));
       if (userRoleDoc.exists() && userRoleDoc.data().role === 'admin') {
-        console.log('Usuario admin, redirigiendo a la escuela.');
-        navigate('/escuela');  // Redirigir directamente si es administrador
+        console.log('Usuario admin detectado, redirigiendo a la escuela.');
+        navigate('/escuela');
+        return; // Termina aquí para admins
+      }
+  
+      // Registrar la solicitud en 'users-school' si es un usuario regular
+      const userSchoolDoc = await getDoc(doc(db, 'users-school', user.uid));
+      if (userSchoolDoc.exists()) {
+        console.log('Solicitud ya registrada anteriormente.');
+        alert('Tu solicitud ya fue enviada. Por favor, espera la aprobación.');
         return;
       }
-
-      // Si no es admin, registrar en 'users-school'
-      const existingSchoolUserDoc = await getDoc(doc(db, 'users-school', user.uid));
-      if (existingSchoolUserDoc.exists()) {
-        console.log('El usuario ya está registrado en users-school.');
-        alert('Ya estás registrado para la escuela. Espera la aprobación de un administrador.');
-        return;
-      }
-
+  
+      // Guardar en Firestore la solicitud de acceso a la escuela
       await setDoc(doc(db, 'users-school', user.uid), {
         email: user.email,
         aprobado: false,
@@ -80,14 +81,25 @@ function AuthEscuela() {
         role: 'user',
         isActive: true,
       });
-
-      console.log('Registro exitoso. Espera la aprobación de un administrador.');
+  
+      // Crear entrada en 'schoolAccessRequests' para visibilidad del admin
+      await setDoc(doc(db, 'schoolAccessRequests', user.uid), {
+        userId: user.uid,
+        email: user.email,
+        timestamp: new Date(),
+        estado: 'pendiente',
+      });
+  
+      console.log('Registro exitoso. Solicitud enviada.');
       alert('Registro exitoso. Espera la aprobación de un administrador.');
     } catch (error) {
       console.error('Error al registrar al usuario para la escuela: ', error);
       alert('Hubo un problema con el registro. Inténtalo nuevamente.');
     }
   };
+  
+
+  
 
   return (
     <div className="auth-escuela-container">
