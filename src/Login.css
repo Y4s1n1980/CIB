@@ -35,7 +35,9 @@
 
 /* Estilos de los inputs */
 .login-card input[type="email"],
-.login-card input[type="password"] {
+.login-card input[type="password"],
+.login-card input[type="text"],
+.login-card input[type="tel"]  {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;

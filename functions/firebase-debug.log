@@ -1,43 +1,48 @@
-[debug] [2024-11-19T18:11:24.908Z] ----------------------------------------------------------------------
-[debug] [2024-11-19T18:11:24.911Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\yasin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
-[debug] [2024-11-19T18:11:24.911Z] CLI Version:   13.23.1
-[debug] [2024-11-19T18:11:24.911Z] Platform:      win32
-[debug] [2024-11-19T18:11:24.911Z] Node Version:  v20.18.0
-[debug] [2024-11-19T18:11:24.911Z] Time:          Tue Nov 19 2024 19:11:24 GMT+0100 (hora estándar de Europa central)
-[debug] [2024-11-19T18:11:24.911Z] ----------------------------------------------------------------------
+[debug] [2024-11-20T14:50:49.854Z] ----------------------------------------------------------------------
+[debug] [2024-11-20T14:50:49.858Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\yasin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2024-11-20T14:50:49.858Z] CLI Version:   13.23.1
+[debug] [2024-11-20T14:50:49.858Z] Platform:      win32
+[debug] [2024-11-20T14:50:49.858Z] Node Version:  v20.18.0
+[debug] [2024-11-20T14:50:49.858Z] Time:          Wed Nov 20 2024 15:50:49 GMT+0100 (hora estándar de Europa central)
+[debug] [2024-11-20T14:50:49.858Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2024-11-19T18:11:25.008Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-11-19T18:11:25.008Z] > authorizing via signed-in user (benomaryasin1980@gmail.com)
+[debug] [2024-11-20T14:50:49.975Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-20T14:50:49.976Z] > authorizing via signed-in user (benomaryasin1980@gmail.com)
 [info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
-[debug] [2024-11-19T18:11:25.018Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-11-19T18:11:25.018Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2024-11-19T18:11:25.022Z] [hub] writing locator at C:\Users\yasin\AppData\Local\Temp\hub-my-association-1b7c5.json
-[debug] [2024-11-19T18:11:25.043Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-11-19T18:11:25.044Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-11-19T18:11:25.044Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-11-19T18:11:25.044Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[debug] [2024-11-20T14:50:49.983Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-20T14:50:49.983Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-11-20T14:50:49.989Z] [hub] writing locator at C:\Users\yasin\AppData\Local\Temp\hub-my-association-1b7c5.json
+[debug] [2024-11-20T14:50:50.011Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-20T14:50:50.012Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-20T14:50:50.012Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-20T14:50:50.012Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
-[debug] [2024-11-19T18:11:25.047Z] defaultcredentials: writing to file C:\Users\yasin\AppData\Roaming\firebase\benomaryasin1980_gmail_com_application_default_credentials.json
-[debug] [2024-11-19T18:11:25.049Z] Setting GAC to C:\Users\yasin\AppData\Roaming\firebase\benomaryasin1980_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\yasin\\AppData\\Roaming\\firebase\\benomaryasin1980_gmail_com_application_default_credentials.json"}}
-[debug] [2024-11-19T18:11:25.050Z] Checked if tokens are valid: true, expires at: 1732041364341
-[debug] [2024-11-19T18:11:25.050Z] Checked if tokens are valid: true, expires at: 1732041364341
-[debug] [2024-11-19T18:11:25.051Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig [none]
-[debug] [2024-11-19T18:11:25.682Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig 200
-[debug] [2024-11-19T18:11:25.682Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig {"projectId":"my-association-1b7c5","storageBucket":"my-association-1b7c5.appspot.com","locationId":"europe-west"}
-[debug] [2024-11-19T18:11:25.697Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-11-19T18:11:25.698Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-11-19T18:11:25.698Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\yasin\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\yasin\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[debug] [2024-11-20T14:50:50.016Z] defaultcredentials: writing to file C:\Users\yasin\AppData\Roaming\firebase\benomaryasin1980_gmail_com_application_default_credentials.json
+[debug] [2024-11-20T14:50:50.019Z] Setting GAC to C:\Users\yasin\AppData\Roaming\firebase\benomaryasin1980_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\yasin\\AppData\\Roaming\\firebase\\benomaryasin1980_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-20T14:50:50.020Z] Checked if tokens are valid: false, expires at: 1732103018858
+[debug] [2024-11-20T14:50:50.020Z] Checked if tokens are valid: false, expires at: 1732103018858
+[debug] [2024-11-20T14:50:50.020Z] > refreshing access token with scopes: []
+[debug] [2024-11-20T14:50:50.022Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-20T14:50:50.022Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-20T14:50:50.226Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-20T14:50:50.226Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-20T14:50:50.238Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig [none]
+[debug] [2024-11-20T14:50:50.891Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig 200
+[debug] [2024-11-20T14:50:50.892Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/my-association-1b7c5/adminSdkConfig {"projectId":"my-association-1b7c5","storageBucket":"my-association-1b7c5.appspot.com","locationId":"europe-west"}
+[debug] [2024-11-20T14:50:50.913Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-20T14:50:50.914Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-20T14:50:50.914Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\yasin\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\yasin\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-11-19T18:11:25.824Z] Web / API server started at 127.0.0.1:4000
+[debug] [2024-11-20T14:50:51.052Z] Web / API server started at 127.0.0.1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-11-19T18:11:25.824Z] Web / API server started at ::1:4000
+[debug] [2024-11-20T14:50:51.052Z] Web / API server started at ::1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
 [info] i  functions: Watching "C:\Users\yasin\association-site\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\yasin\\association-site\\functions\" for Cloud Functions..."}}
 [error] !!  functions: Failed to load function definition from source: FirebaseError: `runtime` field is required but was not found in firebase.json or package.json.
 To fix this, add the following lines to the `functions` section of your firebase.json:
 "runtime": "nodejs22" or set the "engine" field in package.json
  {"metadata":{"emulator":{"name":"functions"},"message":"Failed to load function definition from source: FirebaseError: `runtime` field is required but was not found in firebase.json or package.json.\nTo fix this, add the following lines to the `functions` section of your firebase.json:\n\"runtime\": \"nodejs22\" or set the \"engine\" field in package.json\n"}}
-[debug] [2024-11-19T18:11:25.941Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[debug] [2024-11-20T14:50:51.169Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: . If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │

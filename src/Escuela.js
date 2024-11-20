@@ -171,10 +171,10 @@ function Escuela() {
 
        
         {/* Chat directo para usuarios */}
-        <section className="direct-chat">
-          <h2>Chat De La Escuela</h2>
-          <Chat /> {/* Reutilizamos el componente de Chat existente */}
-        </section>
+        
+        <Chat /> {/* Reutilizamos el componente de Chat existente */}
+        
+         
       </div>
     </div>
   );

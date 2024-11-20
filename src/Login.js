@@ -8,6 +8,8 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState(''); // Nuevo campo
+  const [phone, setPhone] = useState(''); // Nuevo campo (opcional)
   const [isRegistering, setIsRegistering] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');  // Para manejar los errores
@@ -18,7 +20,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');  // Reiniciar el error al hacer una nueva petición
+    setError('');
 
     try {
       if (isRegistering) {
@@ -26,37 +28,38 @@ function Login() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // Crear documento de usuario en Firestore
+        // Guardar datos adicionales en Firestore
         await setDoc(doc(db, 'users', user.uid), {
           email: user.email,
-          role: 'user',  // Por defecto, todos los usuarios son normales
-          isActive: true
+          name: name, 
+          phone: phone || null, 
+          role: 'user',
+          isActive: true,
         });
 
         alert('Usuario registrado exitosamente');
-        navigate('/');  // Redirigir al usuario normal a la página de inicio
+        navigate('/');
       } else {
-        // Lógica para iniciar sesión de un usuario existente
+        // Inicio de sesión
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
         const userDoc = await getDoc(doc(db, 'users', user.uid));
         if (userDoc.exists()) {
           const userData = userDoc.data();
-          console.log("Rol del usuario:", userData.role);
           if (userData.role === 'admin') {
-            console.log("Redirigiendo al admin-dashboard, rol:", userData.role);
-            navigate('/admin');  // Redirigir a los administradores al panel de control
+            navigate('/admin');
           } else {
-            console.log("Usuario no es admin, rol:", userData.role);
-            navigate('/');  
+            navigate('/');
           }
         } else {
-          // Si el usuario no tiene un documento en Firestore, crearlo
+          // Crear documento si no existe
           await setDoc(doc(db, 'users', user.uid), {
             email: user.email,
+            name: name,
+            phone: phone || null,
             role: 'user',
-            isActive: true
+            isActive: true,
           });
           navigate('/');
         }
@@ -92,6 +95,21 @@ function Login() {
         <h1>{isRegistering ? 'Registrar' : 'Iniciar sesión'}</h1>
         
         <form onSubmit={handleLogin}>
+        <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Ingresa tu nombre"
+                required
+              />
+
+              <input
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Ingresa tu teléfono (opcional)"
+              />
+
           <input
             type="email"
             value={email}

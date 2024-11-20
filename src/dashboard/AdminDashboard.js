@@ -161,34 +161,39 @@ function AdminDashboard() {
       {/* Gestión de Usuarios */}
       <h2>Gestión de Usuarios</h2>
       <table className="admin-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Rol</th>
-            <th>Activo</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>{user.isActive ? 'Sí' : 'No'}</td>
-              <td>
-                <button onClick={() => handleToggleRole(user.id, user.role)}>
-                  {user.role === 'admin' ? 'Cambiar a Usuario' : 'Cambiar a Admin'}
-                </button>
-                <button onClick={() => handleToggleActive(user.id, user.isActive)}>
-                  {user.isActive ? 'Desactivar' : 'Activar'}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Rol</th>
+      <th>Activo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {users.map(user => (
+      <tr key={user.id}>
+        <td>{user.id}</td>
+        <td>{user.name || 'sin Nombre'}</td> 
+        <td>{user.email}</td>
+        <td>{user.phone || 'No proporcionado'}</td> 
+        <td>{user.role}</td>
+        <td>{user.isActive ? 'Sí' : 'No'}</td>
+        <td>
+          <button onClick={() => handleToggleRole(user.id, user.role)}>
+            {user.role === 'admin' ? 'Cambiar a Usuario' : 'Cambiar a Admin'}
+          </button>
+          <button onClick={() => handleToggleActive(user.id, user.isActive)}>
+            {user.isActive ? 'Desactivar' : 'Activar'}
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 
       {/* Gestión de Usuarios de la Escuela */}
       <h2>Gestión de Usuarios de la Escuela</h2>
@@ -197,6 +202,8 @@ function AdminDashboard() {
         <table className="school-table">
           <thead>
             <tr>
+              <th>Nombre</th>
+              <th>Teléfono</th>
               <th>Correo Electrónico</th>
               <th>Acciones</th>
             </tr>
@@ -204,6 +211,8 @@ function AdminDashboard() {
           <tbody>
             {schoolRequests.map(request => (
               <tr key={request.id}>
+                <td>{request.name || 'Sin Nombre'}</td>
+                <td>{request.phone || 'No Proporcionado'}</td>
                 <td>{request.email}</td>
                 <td>
                   <button onClick={() => handleApprove(request.id)} className="approve-btn">Aprobar</button>
