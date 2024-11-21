@@ -21,6 +21,7 @@ import Testimonios from './Testimonios';
 import AuthEscuela from './AuthEscuela';
 import Escuela from './Escuela';
 import AreaFinanciera from './componentes/AreaFinanciera/AreaFinanciera';  
+import EventDetails from "./EventDetails";
 
 function AppContent() {
   const location = useLocation();
@@ -47,6 +48,8 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/solicitar-acceso" element={<AuthEscuela />} />
+        <Route path="/eventos" element={<Eventos />} />
+        <Route path="/eventos/:id" element={<EventDetails />} />
         
         {/* Rutas protegidas */}
         <Route path="/chat" element={<PrivateRoute><Chat /></PrivateRoute>} />

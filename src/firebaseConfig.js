@@ -1,8 +1,8 @@
 // Importa las funciones que necesitas del SDK de Firebase
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";  // Para autenticación
-import { getFirestore } from "firebase/firestore";  // Para Firestore
-import { getStorage } from "firebase/storage"; // Para almacenamiento (opcional)
+import { getAuth } from "firebase/auth";  
+import { getFirestore } from "firebase/firestore";  
+import { getStorage } from "firebase/storage"; 
 
 
 
@@ -21,8 +21,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Exportar los servicios que vas a utilizar
-export const auth = getAuth(app);  // Autenticación
-export const db = getFirestore(app);  // Firestore
-export const storage = getStorage(app);  // Almacenamiento (si lo necesitas)
+export const auth = getAuth(app);  
+export const db = getFirestore(app);  
+export const storage = getStorage(app); 
 
 export default app;

@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import "./About.css"; // Importa el CSS que aplicará los estilos
+import "./About.css"; 
 
 
 
 const About = () => {
-  const [modalImage, setModalImage] = useState('');  // Estado para la imagen del modal
-  const [showModal, setShowModal] = useState(false); // Estado para mostrar/ocultar el modal
+  const [modalImage, setModalImage] = useState('');  
+  const [showModal, setShowModal] = useState(false); 
 
   const handleImageClick = (imageSrc) => {
-    setModalImage(imageSrc);  // Almacena la imagen seleccionada
-    setShowModal(true);       // Muestra el modal
+    setModalImage(imageSrc);  
+    setShowModal(true);      
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);      // Cierra el modal
+    setShowModal(false);      
   };
 
   return (

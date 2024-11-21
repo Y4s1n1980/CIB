@@ -1,0 +1,79 @@
+/* Estilo general de la página de detalles del evento */
+.event-details {
+    font-family: 'Open Sans', sans-serif;
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px ;
+    margin-top: 110px;
+    background-color: hsl(0, 21%, 93%);
+    border-radius: 2%;
+    box-shadow:  0 4px 10px rgba(0, 0, 0, 0.3); ;
+  }
+  
+  /* Título del evento */
+  .event-details h1 {
+    font-size: 46px;
+    color: #ffaa00;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  /* Imagen del evento */
+  .event-details img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Detalles del evento */
+  .event-details p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  /* Ubicación del evento */
+  .event-details p:nth-child(3) {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Estilo del botón de volver */
+  .event-details .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffaa00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .event-details .back-button:hover {
+    background-color: #e09e00;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .event-details {
+      padding: 20px;
+    }
+  
+    .event-details h1 {
+      font-size: 28px;
+    }
+  
+    .event-details p {
+      font-size: 16px;
+    }
+  }
+  

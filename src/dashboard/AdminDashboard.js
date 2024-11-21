@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, doc, deleteDoc, updateDoc, addDoc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, deleteDoc, updateDoc, addDoc, setDoc  } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import Hero from '../Hero';
 import './AdminDashboard.css';
-import { getAuth } from 'firebase/auth';
+
 
 
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
-  const [schoolUsers, setSchoolUsers] = useState([]);
-  const [pageContent, setPageContent] = useState({ title: '', content: '' });
+  const [setSchoolUsers] = useState([]);
   const [schoolRequests, setSchoolRequests] = useState([]);
   const [events, setEvents] = useState([]);
   const [newEvent, setNewEvent] = useState({ title: "", date: "", description: "", active: true });
+ 
+
+
+
 
 
   // Cargar todos los usuarios y datos iniciales desde Firestore
@@ -28,15 +31,13 @@ function AdminDashboard() {
         const eventSnapshot = await getDocs(collection(db, 'events'));
         setEvents(eventSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
 
-        const pageContentSnapshot = await getDocs(collection(db, 'pageContent'));
-        setPageContent(pageContentSnapshot.docs[0]?.data() || {});
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
     };
 
     fetchData();
-  }, []);
+  },);
 
   // Función para gestionar usuarios
   const handleToggleRole = async (id, currentRole) => {
@@ -62,6 +63,29 @@ function AdminDashboard() {
     }
   };
 
+
+ // Crear un nuevo evento con imagen
+ const handleCreateEvent = async (e) => {
+  e.preventDefault();
+
+  try {
+    // Crear un objeto del evento con la ruta de la imagen proporcionada
+    const newEventData = { ...newEvent, imageUrl: newEvent.image }; 
+    const docRef = await addDoc(collection(db, "events"), newEventData);
+
+    // Actualizar el estado local para incluir el nuevo evento
+    setEvents([...events, { id: docRef.id, ...newEventData }]);
+    setNewEvent({ title: "", date: "", description: "", image: "", active: true });
+    console.log("Evento creado");
+  } catch (error) {
+    console.error("Error al crear evento:", error);
+  }
+};
+
+
+
+
+
    // Cargar eventos desde Firestore
    useEffect(() => {
     const fetchEvents = async () => {
@@ -76,18 +100,6 @@ function AdminDashboard() {
     fetchEvents();
   }, []);
 
-  // Crear un nuevo evento
-  const handleCreateEvent = async (e) => {
-    e.preventDefault();
-    try {
-      const docRef = await addDoc(collection(db, "events"), newEvent);
-      setEvents([...events, { id: docRef.id, ...newEvent }]);
-      setNewEvent({ title: "", date: "", description: "", active: true });
-      console.log("Evento creado");
-    } catch (error) {
-      console.error("Error al crear evento:", error);
-    }
-  };
 
   // Eliminar un evento
   const handleDeleteEvent = async (id) => {
@@ -101,7 +113,6 @@ function AdminDashboard() {
   };
 
   // Activar/Desactivar un evento
-  // Activar/Desactivar un evento (cambiamos el nombre de la función)
 const handleToggleEventActive = async (id, isActive) => {
   try {
     const eventDoc = doc(db, "events", id);
@@ -160,7 +171,7 @@ const handleToggleEventActive = async (id, isActive) => {
           email: requestDoc.email,
           aprobado: true,
           estado: 'aprobado',
-          role: 'user', // Rol predeterminado
+          role: 'user', 
           isActive: true,
         });
   
@@ -275,7 +286,7 @@ const handleToggleEventActive = async (id, isActive) => {
       <form onSubmit={handleCreateEvent} className="admin-form">
           <input
             type="text"
-            placeholder="Título del evento"
+            placeholder="título"
             value={newEvent.title}
             onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
             required
@@ -292,6 +303,13 @@ const handleToggleEventActive = async (id, isActive) => {
             onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
             required
           ></textarea>
+          <input
+            type="text"
+            placeholder="Ruta de la imagen (por ejemplo: /images/event1.jpg)"
+            value={newEvent.image}
+            onChange={(e) => setNewEvent({ ...newEvent, image: e.target.value })}
+            required
+          />
           <button type="submit">Crear Evento</button>
         </form>
 
@@ -307,34 +325,54 @@ const handleToggleEventActive = async (id, isActive) => {
             </tr>
           </thead>
           <tbody>
-            {events.map((event) => (
-              <tr key={event.id}>
-                <td>{event.title}</td>
-                <td>{event.date}</td>
-                <td>{event.description}</td>
-                <td>{event.active ? "Sí" : "No"}</td>
-                <td>
-                  <button onClick={() => handleToggleEventActive(event.id, event.active)}>
-                    {event.active ? "Desactivar" : "Activar"}
-                  </button>
-                  <button onClick={() => handleDeleteEvent(event.id)}>Eliminar</button>
-                  {/* Botón para editar (puede abrir un modal o formulario inline) */}
-                  <button
-                    onClick={() =>
-                      handleEditEvent(event.id, {
-                        title: "Nuevo título",
-                        date: "2024-01-01",
-                        description: "Nueva descripción",
-                        active: true,
-                      })
-                    }
-                  >
-                    Editar
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+  {events.map((event) => (
+    <tr key={event.id}>
+      <td>
+        <input
+          type="text"
+          defaultValue={event.title}
+          onChange={(e) =>
+            setEvents(events.map((ev) =>
+              ev.id === event.id ? { ...ev, title: e.target.value } : ev
+            ))
+          }
+        />
+      </td>
+      <td>
+        <input
+          type="date"
+          defaultValue={event.date}
+          onChange={(e) =>
+            setEvents(events.map((ev) =>
+              ev.id === event.id ? { ...ev, date: e.target.value } : ev
+            ))
+          }
+        />
+      </td>
+      <td>
+        <textarea
+          defaultValue={event.description}
+          onChange={(e) =>
+            setEvents(events.map((ev) =>
+              ev.id === event.id ? { ...ev, description: e.target.value } : ev
+            ))
+          }
+        ></textarea>
+      </td>
+      <td>{event.active ? "Sí" : "No"}</td>
+      <td>
+        <button onClick={() => handleToggleEventActive(event.id, event.active)}>
+          {event.active ? "Desactivar" : "Activar"}
+        </button>
+        <button onClick={() => handleDeleteEvent(event.id)}>Eliminar</button>
+        <button onClick={() => handleEditEvent(event.id, event)}>
+          Guardar
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
         </table> 
     </div>
   </div>
