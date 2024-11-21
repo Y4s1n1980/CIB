@@ -13,7 +13,7 @@
 }
 
 .navbar-list li a {
-    color: white;
+    color: hwb(0 100% 0% / 0.664);
     text-decoration: none;
     font-size: 20px;
     padding: 10px 20px;

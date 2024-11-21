@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e0e5ec;
+  background-color: hsl(215, 52%, 80%);
 }
 
 /* Chat container with Neomorphism */

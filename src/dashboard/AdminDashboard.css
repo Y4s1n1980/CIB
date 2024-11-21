@@ -2,6 +2,8 @@
 .admin-dashboard {
     padding: 20px;
     font-family: Arial, sans-serif;
+    background-color: rgb(190, 223, 175);
+   
 }
 
 .admin-content {
@@ -21,6 +23,7 @@ h2 {
     border-collapse: collapse;
     margin-bottom: 20px;
     font-size: 16px;
+    box-shadow:   0 4px 10px rgba(0, 0, 0, 0.3); ;
 }
 
 

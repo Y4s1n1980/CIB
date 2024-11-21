@@ -1,7 +1,7 @@
 /* Estilos generales para la página de la escuela */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f7fc;
+  background-color: hsl(218, 48%, 84%);
   color: #333;
 }
 
@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 /* Información General */
