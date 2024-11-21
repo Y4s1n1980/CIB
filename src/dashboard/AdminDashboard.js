@@ -9,10 +9,11 @@ import { getAuth } from 'firebase/auth';
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [schoolUsers, setSchoolUsers] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [newEvent, setNewEvent] = useState({ title: '', date: '', description: '' });
   const [pageContent, setPageContent] = useState({ title: '', content: '' });
   const [schoolRequests, setSchoolRequests] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [newEvent, setNewEvent] = useState({ title: "", date: "", description: "", active: true });
+
 
   // Cargar todos los usuarios y datos iniciales desde Firestore
   useEffect(() => {
@@ -61,28 +62,71 @@ function AdminDashboard() {
     }
   };
 
-  // Funciones para gestionar eventos
+   // Cargar eventos desde Firestore
+   useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const eventSnapshot = await getDocs(collection(db, "events"));
+        setEvents(eventSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      } catch (error) {
+        console.error("Error al cargar eventos:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  // Crear un nuevo evento
   const handleCreateEvent = async (e) => {
     e.preventDefault();
     try {
-      const docRef = await addDoc(collection(db, 'events'), newEvent);
+      const docRef = await addDoc(collection(db, "events"), newEvent);
       setEvents([...events, { id: docRef.id, ...newEvent }]);
-      setNewEvent({ title: '', date: '', description: '' });
-      console.log('Evento creado');
+      setNewEvent({ title: "", date: "", description: "", active: true });
+      console.log("Evento creado");
     } catch (error) {
-      console.error('Error al crear evento:', error);
+      console.error("Error al crear evento:", error);
     }
   };
 
+  // Eliminar un evento
   const handleDeleteEvent = async (id) => {
     try {
-      await deleteDoc(doc(db, 'events', id));
-      setEvents(events.filter(event => event.id !== id));
-      console.log('Evento eliminado');
+      await deleteDoc(doc(db, "events", id));
+      setEvents(events.filter((event) => event.id !== id));
+      console.log("Evento eliminado");
     } catch (error) {
-      console.error('Error al eliminar evento:', error);
+      console.error("Error al eliminar evento:", error);
     }
   };
+
+  // Activar/Desactivar un evento
+  // Activar/Desactivar un evento (cambiamos el nombre de la función)
+const handleToggleEventActive = async (id, isActive) => {
+  try {
+    const eventDoc = doc(db, "events", id);
+    await updateDoc(eventDoc, { active: !isActive });
+    setEvents(events.map((event) => (event.id === id ? { ...event, active: !isActive } : event)));
+    console.log("Estado de activación del evento cambiado");
+  } catch (error) {
+    console.error("Error al cambiar estado de activación del evento:", error);
+  }
+};
+
+
+  // Editar un evento
+  const handleEditEvent = async (id, updatedEvent) => {
+    try {
+      const eventDoc = doc(db, "events", id);
+      await updateDoc(eventDoc, updatedEvent);
+      setEvents(events.map((event) => (event.id === id ? { ...event, ...updatedEvent } : event)));
+      console.log("Evento editado");
+    } catch (error) {
+      console.error("Error al editar evento:", error);
+    }
+  };
+
+  
 
   // Funciones para gestión de usuarios de escuela
   useEffect(() => {
@@ -229,52 +273,69 @@ function AdminDashboard() {
       {/* Gestión de Eventos */}
       <h2>Gestión de Eventos</h2>
       <form onSubmit={handleCreateEvent} className="admin-form">
-        <input
-          type="text"
-          placeholder="Título del evento"
-          value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-          required
-        />
-        <input
-          type="date"
-          value={newEvent.date}
-          onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Descripción del evento"
-          value={newEvent.description}
-          onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-          required
-        />
-        <button type="submit">Crear Evento</button>
-      </form>
-      <table className="event-table">
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {events.map(event => (
-            <tr key={event.id}>
-              <td>{event.title}</td>
-              <td>{event.date}</td>
-              <td>{event.description}</td>
-              <td>
-                <button onClick={() => handleDeleteEvent(event.id)} className="delete">Eliminar</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          <input
+            type="text"
+            placeholder="Título del evento"
+            value={newEvent.title}
+            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+            required
+          />
+          <input
+            type="date"
+            value={newEvent.date}
+            onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+            required
+          />
+          <textarea
+            placeholder="Descripción del evento"
+            value={newEvent.description}
+            onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+            required
+          ></textarea>
+          <button type="submit">Crear Evento</button>
+        </form>
 
-      
+        {/* Tabla de eventos */}
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Activo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((event) => (
+              <tr key={event.id}>
+                <td>{event.title}</td>
+                <td>{event.date}</td>
+                <td>{event.description}</td>
+                <td>{event.active ? "Sí" : "No"}</td>
+                <td>
+                  <button onClick={() => handleToggleEventActive(event.id, event.active)}>
+                    {event.active ? "Desactivar" : "Activar"}
+                  </button>
+                  <button onClick={() => handleDeleteEvent(event.id)}>Eliminar</button>
+                  {/* Botón para editar (puede abrir un modal o formulario inline) */}
+                  <button
+                    onClick={() =>
+                      handleEditEvent(event.id, {
+                        title: "Nuevo título",
+                        date: "2024-01-01",
+                        description: "Nueva descripción",
+                        active: true,
+                      })
+                    }
+                  >
+                    Editar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table> 
     </div>
   </div>
 );
